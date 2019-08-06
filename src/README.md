@@ -1,6 +1,6 @@
 # Todo Task1 Restful API
 
-This repository provides a sample django-rest-framework based upon the [Task1 Project].
+This repository provides a sample django-rest-framework based upon the Task1 Project. 
 
 The application allows users to create todo list entries. User location / IP address gets recorded against the created todo list. If geoip location API is present the user's location details like City and Country get added to the details of the todo item.  
 
@@ -9,7 +9,7 @@ Running the app in virtual enviroment will utilise SQLite. Cloud deployment to A
 
 ## Quick Start
 
-You can use the `todotask1 by running it in a virtual enviroment: `_::
+You can use the todotask1 by running it in a virtual enviroment:  _::
     
     $ cd todotask1/src
     $ virtualenv .venv -p python3
@@ -22,15 +22,13 @@ You can use the `todotask1 by running it in a virtual enviroment: `_::
     #To exist or deactivate the virtual enviroment 
     (env) $ deactivate
 
-You can test by sending a simple curl request: _::
+You can test by sending a simple curl request:
 
-curl http://localhost:5558/todos?format=json
-
-
-## Requirments 
+`curl http://localhost:5558/todos?format=json`
 
 
-PIP: _::
+## Requirments
+```
 (env) $ cat requirments.txt 
 backoff==1.8.0
 certifi==2019.6.16
@@ -48,12 +46,11 @@ retrying==1.3.3
 six==1.12.0
 urllib3==1.25.3
 uWSGI==2.0.17
-
-ipify - end user ip address 
-retrying - adding retry behavior to the api calls  
+```
+ipify - Used to get end user ip address using ipify API
+retrying - Adding retry behavior to the api calls  
 
 
 ## Disclaimer
-
 
 Please note that this app is not production ready and must not be used in production envirment. 

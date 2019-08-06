@@ -1,6 +1,12 @@
 # Docker in AWS Todo Application
 
-This repository provides a sample application based upon the [Todo project].
+This repository provides a sample application based upon the **Todo Project**.
+
+Docker Container NAme | Description
+------------ | -------------
+APP | Alpine, Django 
+DB | Mariadb server 
+API | Alpine, GeoLite2-City based on **workivate/geoip-api** image
 
 
 ## Requirements
@@ -12,25 +18,25 @@ This repository provides a sample application based upon the [Todo project].
 - jq
 - AWS CLI
 
-
-
 ## Quick Start
 
 To Build test and release the application stack please run the below:
 
-- To Run the test stage: _::
-make test
-To Run the release stage – _::
-make release
-To Clean up – _::
-make clean
+- To Run the test stage:
+`make test`
 
-## Deplyment 
 
-Configure AWS Account 
-Deployment using AWS CloudFormation aws folder 
+- To Run the release stage:
+`make release`
 
-Documentation Swagger UI 
+- To Clean up:
+`make clean`
+
+## Deployment 
+
+- Configure AWS Account & IAM 
+- Deployment using AWS CloudFormation aws folder 
+- Documentation Swagger UI 
 
 
 ## Disclaimer
