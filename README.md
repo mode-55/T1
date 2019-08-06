@@ -13,29 +13,26 @@ This repository provides a sample application based upon the [Todo project].
 - AWS CLI
 
 
-***********
+
 ## Quick Start
-***********
 
-To Build test and release the application stack please run the below: _::
+To Build test and release the application stack please run the below:
 
-To Run the test stage – _::
+- To Run the test stage: _::
 make test
 To Run the release stage – _::
 make release
 To Clean up – _::
 make clean
 
-***********
-##Deplyment 
-***********
+## Deplyment 
+
 Configure AWS Account 
 Deployment using AWS CloudFormation aws folder 
 
 Documentation Swagger UI 
 
-***********
-##Disclaimer
-***********
+
+## Disclaimer
 
 Please note that this app is not production ready and must not be used in production envirment.
