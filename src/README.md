@@ -7,7 +7,7 @@ The application allows users to create todo list entries. User location / IP add
 Running the app in virtual enviroment will utilise SQLite. Cloud deployment to AWS ECS uses MYSQL database. 
 
 ***********
-Quick Start
+##Quick Start
 ***********
 
 You can use the `todotask1 by running it in a virtual enviroment: `_::
@@ -28,11 +28,11 @@ You can test by sending a simple curl request: _::
 curl http://localhost:5558/todos?format=json
 
 ***********
-Requirments 
+##Requirments 
 ***********
 
-PIP: requirments.txt 
-
+PIP: _::
+(env) $ cat requirments.txt 
 backoff==1.8.0
 certifi==2019.6.16
 chardet==3.0.4

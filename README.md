@@ -14,28 +14,28 @@ This repository provides a sample application based upon the [Todo project].
 
 
 ***********
-Quick Start
+## Quick Start
 ***********
- 
 
-app - 
-api 
-db 
+To Build test and release the application stack please run the below: _::
 
-Intsalled python modules 
+To Run the test stage – _::
+make test
+To Run the release stage – _::
+make release
+To Clean up – _::
+make clean
 
-ipify - end user ip address 
-retrying - adding retry behavior to the api calls  
-
-
-Run the test stage – make test
-Run the release stage – make release
-Clean up – make clean
-
+***********
+##Deplyment 
+***********
 Configure AWS Account 
-Deployment using AWS CloudFormation
+Deployment using AWS CloudFormation aws folder 
 
+Documentation Swagger UI 
 
-Documentation 
-Swagger UI 
+***********
+##Disclaimer
+***********
 
+Please note that this app is not production ready and must not be used in production envirment.
