@@ -1,0 +1,16 @@
+backoff==1.8.0
+certifi==2019.6.16
+chardet==3.0.4
+Django==2.0
+django-cors-headers==2.1.0
+djangorestframework==3.7.3
+idna==2.8
+ipify==1.0.0
+mysql-connector-python==8.0.11
+protobuf==3.9.0
+pytz==2017.3
+requests==2.22.0
+retrying==1.3.3
+six==1.12.0
+urllib3==1.25.3
+uWSGI==2.0.17

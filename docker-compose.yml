@@ -1,0 +1,97 @@
+version: '2.4'
+
+volumes:
+  public:
+    driver: local
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    depends_on:
+      api:
+        condition: service_started
+  release:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DJANGO_SETTINGS_MODULE: todotask1.settings_release
+      MYSQL_HOST: db
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: password
+  app:
+    extends:
+      service: release
+    depends_on:
+      db:
+        condition: service_healthy
+      api:
+        condition: service_started
+    links:
+      - "db:db"
+      - "api:api"
+    volumes:
+      - public:/public
+    healthcheck:
+      test: curl -fs localhost:9001
+      interval: 3s
+      retries: 10
+    ports:
+      - 9001
+    command:
+      - uwsgi
+      - --http=0.0.0.0:9001
+      - --module=todotask1.wsgi
+      - --master
+      - --check-static=/public
+      - --die-on-term
+      - --processes=4
+      - --threads=2
+  acceptance:
+    extends:
+      service: release
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      APP_URL: http://app:9001
+      API_URL: http://api:8080
+    command:
+      - bats 
+      - acceptance.bats
+  migrate:
+    extends:
+      service: release
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - python3
+      - manage.py
+      - migrate
+      - --no-input
+  db:
+    image: mysql:5.7
+    healthcheck:
+      test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 3s
+      retries: 10
+    environment:
+      MYSQL_DATABASE: todotask1
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306
+  api: 
+    image: workivate/geoip-api
+    healthcheck:
+      test: curl -fs localhost:8080/info?ip=129.1.1.1
+      interval: 3s
+      retries: 10
+    ports:
+      - 8080
+  
