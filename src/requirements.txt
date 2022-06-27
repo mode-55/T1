@@ -6,7 +6,7 @@ django-cors-headers==2.1.0
 djangorestframework==3.9.1
 idna==2.8
 ipify==1.0.0
-mysql-connector-python==8.0.11
+mysql-connector-python==8.0.14
 protobuf==3.9.0
 pytz==2017.3
 requests==2.22.0
